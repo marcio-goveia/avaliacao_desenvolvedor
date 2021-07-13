@@ -2,6 +2,15 @@
 
 <h1>Sales</h1>
 
+<br>
+
+<%= form_tag import_sales_path, multipart: true do %>
+  <%= file_field_tag :file, accept: '.csv' %>
+  <%= submit_tag "Import CSV file" %>
+<% end %>
+
+<br>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +20,6 @@
       <th>Quantity</th>
       <th>Address</th>
       <th>Provider</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -20,16 +28,14 @@
       <tr>
         <td><%= sale.buyer %></td>
         <td><%= sale.description %></td>
-        <td><%= sale.unit_price %></td>
+        <td>$ <%= sale.unit_price %></td>
         <td><%= sale.quantity %></td>
         <td><%= sale.address %></td>
         <td><%= sale.provider %></td>
-        <td><%= link_to 'Show', sale %></td>
-        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<h2>Total: $ <%= @total_sale %></h2>
 <br>

@@ -32,12 +32,22 @@ a {
   }
 }
 
-th {
-  padding-bottom: 5px;
-}
-
-td {
-  padding: 0 5px 7px;
+table {  
+  font-family:sans-serif;
+  th, td {
+    padding:.25em .5em;
+    text-align:left;
+    &:nth-child(2) {
+      text-align:right;
+    }
+  }
+  td {
+    background-color:#eee;    
+  }
+  th {
+    background-color: green;
+    color:#fff;
+  }
 }
 
 div {

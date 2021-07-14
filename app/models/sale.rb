@@ -3,7 +3,7 @@ class Sale < ApplicationRecord
   validates :unit_price, presence: true, numericality: { greater_than: 0}
   validates :quantity, presence: true, numericality: { greater_than: 0, only_integer: true}
 
-  def old_import(file)
+  def self.import(file)
     CSV.foreach(file.path, headers: true, col_sep: "\t") do |row|
       cols = Sale.new.attributes.except("id", "created_at", "updated_at").keys
       sale = Sale.new

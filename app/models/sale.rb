@@ -4,8 +4,11 @@ class Sale < ApplicationRecord
   validates :quantity, presence: true, numericality: { greater_than: 0, only_integer: true}
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true, col_sep: "\t") do |row|  
-      Sale.create! row.to_hash
+    CSV.foreach(file.path, headers: true, col_sep: "\t") do |row|
+      cols = Sale.new.attributes.except("id", "created_at", "updated_at").keys
+      sale = Sale.new
+      cols.each_with_index { |item, index| sale[item] = row[index] }
+      sale.save
     end
   end
 

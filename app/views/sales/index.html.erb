@@ -5,7 +5,7 @@
 <br>
 
 <%= form_tag import_sales_path, multipart: true do %>
-  <%= file_field_tag :file, accept: '.csv' %>
+  <%= file_field_tag :file, accept: '.txt' %>
   <%= submit_tag "Import CSV file" %>
 <% end %>
 

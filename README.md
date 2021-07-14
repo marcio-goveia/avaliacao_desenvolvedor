@@ -1,24 +1,47 @@
-# README
+# Steps to get this app runnung
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## requirements
+ruby version: ruby-2.2.10
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+### Clone the repository
 
-* System dependencies
+```shell
+git clone git@github.com:marciosg4/avaliacao_desenvolvedor.git
+cd avaliacao_desenvolvedor
+```
 
-* Configuration
+### Check your Ruby version
 
-* Database creation
+```shell
+ruby -v
+```
 
-* Database initialization
+The ouput should start with something like `ruby 2.2.10`
 
-* How to run the test suite
+If not, install the right ruby version using [rvm](https://rvm.io/rvm/install):
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+rvm install ruby-2.2.10
+```
 
-* Deployment instructions
+### Install dependencies
 
-* ...
+Using [Bundler](https://github.com/bundler/bundler)
+
+```shell
+bundle
+```
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate
+```
+
+## Serve
+
+```shell
+rails s
+```

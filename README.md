@@ -1,8 +1,8 @@
 # Steps to get this app runnung
 
 ## requirements
-ruby 2.2.10
-rails 5.2.5
+### ruby 2.2.10
+### rails 5.2.5
 
 ## Install
 
